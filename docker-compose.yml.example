@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: QBwNk5GN5xfB
+      MYSQL_DATABASE: milimili
+    ports:
+      - "3306:3306"
+  redis:
+    container_name: redis
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
