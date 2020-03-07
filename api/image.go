@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// CreateImage 视频投稿
+// CreateImage 照片投稿
 func CreateImage(c *gin.Context) {
 	service := service.CreateImageService{}
 	if err := c.ShouldBind(&service); err == nil {
@@ -17,14 +17,14 @@ func CreateImage(c *gin.Context) {
 	}
 }
 
-// ShowImage 视频详情接口
+// ShowImage 照片详情接口
 func ShowImage(c *gin.Context) {
 	service := service.ShowImageService{}
 	res := service.Show(c.Param("id"))
 	c.JSON(200, res)
 }
 
-// ListImage 视频列表接口
+// ListImage 照片列表接口
 func ListImage(c *gin.Context) {
 	service := service.ListImageService{}
 	if err := c.ShouldBind(&service); err == nil {
@@ -35,7 +35,7 @@ func ListImage(c *gin.Context) {
 	}
 }
 
-// UpdateImage 更新视频的接口
+// UpdateImage 更新照片的接口
 func UpdateImage(c *gin.Context) {
 	service := service.UpdateImageService{}
 	if err := c.ShouldBind(&service); err == nil {
@@ -46,7 +46,7 @@ func UpdateImage(c *gin.Context) {
 	}
 }
 
-// DeleteImage 删除视频的接口
+// DeleteImage 删除照片的接口
 func DeleteImage(c *gin.Context) {
 	service := service.DeleteImageService{}
 	res := service.Delete(c.Param("id"))

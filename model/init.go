@@ -35,4 +35,5 @@ func Database(connString string) {
 	DB = db
 
 	migration()
+	OssInit()
 }

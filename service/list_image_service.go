@@ -5,13 +5,13 @@ import (
 	"miliste/serializer"
 )
 
-// ListImageService 视频列表服务
+// ListImageService 照片列表服务
 type ListImageService struct {
 	Limit int `form:"limit"`
 	Start int `form:"start"`
 }
 
-// List 视频列表
+// List 照片列表
 func (service *ListImageService) List() serializer.Response {
 	images := []model.Image{}
 	total := 0

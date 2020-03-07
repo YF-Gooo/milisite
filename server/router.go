@@ -37,7 +37,7 @@ func NewRouter() *gin.Engine {
 			authed.DELETE("user/logout", api.UserLogout)
 		}
 
-		// 视频操作
+		// 照片操作
 		v1.POST("images", api.CreateImage)
 		v1.GET("image/:id", api.ShowImage)
 		v1.GET("images", api.ListImage)

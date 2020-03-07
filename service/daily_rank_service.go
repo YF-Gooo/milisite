@@ -16,7 +16,7 @@ type DailyRankService struct {
 func (service *DailyRankService) Get() serializer.Response {
 	var images []model.Image
 
-	// 从redis读取点击前十的视频
+	// 从redis读取点击前十的照片
 	vids, _ := cache.RedisClient.ZRevRange(cache.DailyRankKey, 0, 9).Result()
 
 	if len(vids) > 1 {

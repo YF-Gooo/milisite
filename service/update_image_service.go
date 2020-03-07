@@ -5,20 +5,20 @@ import (
 	"miliste/serializer"
 )
 
-// UpdateImageService 更新视频的服务
+// UpdateImageService 更新照片的服务
 type UpdateImageService struct {
 	Title string `form:"title" json:"title" binding:"required,min=2,max=30"`
 	Info  string `form:"info" json:"info" binding:"max=300"`
 }
 
-// Update 更新视频
+// Update 更新照片
 func (service *UpdateImageService) Update(id string) serializer.Response {
 	var image model.Image
 	err := model.DB.First(&image, id).Error
 	if err != nil {
 		return serializer.Response{
 			Status: 404,
-			Msg:    "视频不存在",
+			Msg:    "照片不存在",
 			Error:  err.Error(),
 		}
 	}
@@ -29,7 +29,7 @@ func (service *UpdateImageService) Update(id string) serializer.Response {
 	if err != nil {
 		return serializer.Response{
 			Status: 50002,
-			Msg:    "视频保存失败",
+			Msg:    "照片保存失败",
 			Error:  err.Error(),
 		}
 	}
