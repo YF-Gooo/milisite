@@ -18,5 +18,6 @@ require (
 	github.com/swaggo/gin-swagger v1.2.0
 	golang.org/x/crypto v0.0.0-20190829043050-9756ffdc2472
 	gopkg.in/go-playground/validator.v8 v8.18.2
+	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
 	gopkg.in/yaml.v2 v2.2.2
 )

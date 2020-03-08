@@ -8,11 +8,14 @@ import (
 // User 用户模型
 type User struct {
 	gorm.Model
-	UserName       string
-	PasswordDigest string
-	Nickname       string
-	Status         string
-	Avatar         string `gorm:"size:1000"`
+	UserName       string `json:"username" gorm:"not null;unique"`
+	PasswordDigest string `json:"passworddigest" gorm:"not null"`
+	Nickname       string `json:"nickname" gorm:"not null"`
+	Status         string `json:"status" gorm:"not null"`
+	Avatar         string `json:"avatar" gorm:"size:1000"`
+	Tag            string `json:"tag" gorm:"size:1000"`
+	Description    string `json:"description" gorm:"size:2000"`
+	CatID          uint   `json:"catid"`
 }
 
 const (
