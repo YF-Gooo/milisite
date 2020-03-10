@@ -1,7 +1,7 @@
 package api
 
 import (
-	"miliste/service"
+	service "miliste/service/rank"
 
 	"github.com/gin-gonic/gin"
 )

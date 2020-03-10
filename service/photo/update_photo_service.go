@@ -5,16 +5,16 @@ import (
 	"miliste/serializer"
 )
 
-// UpdateImageService 更新照片的服务
-type UpdateImageService struct {
+// UpdatePhotoService 更新照片的服务
+type UpdatePhotoService struct {
 	Title string `form:"title" json:"title" binding:"required,min=2,max=30"`
 	Info  string `form:"info" json:"info" binding:"max=300"`
 }
 
 // Update 更新照片
-func (service *UpdateImageService) Update(id string) serializer.Response {
-	var image model.Image
-	err := model.DB.First(&image, id).Error
+func (service *UpdatePhotoService) Update(id string) serializer.Response {
+	var photo model.Photo
+	err := model.DB.First(&photo, id).Error
 	if err != nil {
 		return serializer.Response{
 			Status: 404,
@@ -23,9 +23,9 @@ func (service *UpdateImageService) Update(id string) serializer.Response {
 		}
 	}
 
-	image.Title = service.Title
-	image.Info = service.Info
-	err = model.DB.Save(&image).Error
+	photo.Title = service.Title
+	photo.Info = service.Info
+	err = model.DB.Save(&photo).Error
 	if err != nil {
 		return serializer.Response{
 			Status: 50002,
@@ -35,6 +35,6 @@ func (service *UpdateImageService) Update(id string) serializer.Response {
 	}
 
 	return serializer.Response{
-		Data: serializer.BuildImage(image),
+		Data: serializer.BuildPhoto(photo),
 	}
 }

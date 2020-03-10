@@ -1,14 +1,14 @@
 package api
 
 import (
-	"miliste/service"
+	service "miliste/service/photo"
 
 	"github.com/gin-gonic/gin"
 )
 
-// CreateImage 照片投稿
-func CreateImage(c *gin.Context) {
-	service := service.CreateImageService{}
+// CreatePhoto 照片投稿
+func CreatePhoto(c *gin.Context) {
+	service := service.CreatePhotoService{}
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Create()
 		c.JSON(200, res)
@@ -17,16 +17,16 @@ func CreateImage(c *gin.Context) {
 	}
 }
 
-// ShowImage 照片详情接口
-func ShowImage(c *gin.Context) {
-	service := service.ShowImageService{}
+// ShowPhoto 照片详情接口
+func ShowPhoto(c *gin.Context) {
+	service := service.ShowPhotoService{}
 	res := service.Show(c.Param("id"))
 	c.JSON(200, res)
 }
 
-// ListImage 照片列表接口
-func ListImage(c *gin.Context) {
-	service := service.ListImageService{}
+// ListPhoto 照片列表接口
+func ListPhoto(c *gin.Context) {
+	service := service.ListPhotoService{}
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.List()
 		c.JSON(200, res)
@@ -35,9 +35,9 @@ func ListImage(c *gin.Context) {
 	}
 }
 
-// UpdateImage 更新照片的接口
-func UpdateImage(c *gin.Context) {
-	service := service.UpdateImageService{}
+// UpdatePhoto 更新照片的接口
+func UpdatePhoto(c *gin.Context) {
+	service := service.UpdatePhotoService{}
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Update(c.Param("id"))
 		c.JSON(200, res)
@@ -46,9 +46,9 @@ func UpdateImage(c *gin.Context) {
 	}
 }
 
-// DeleteImage 删除照片的接口
-func DeleteImage(c *gin.Context) {
-	service := service.DeleteImageService{}
+// DeletePhoto 删除照片的接口
+func DeletePhoto(c *gin.Context) {
+	service := service.DeletePhotoService{}
 	res := service.Delete(c.Param("id"))
 	c.JSON(200, res)
 }

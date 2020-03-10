@@ -11,12 +11,12 @@ import (
 )
 
 // UploadTokenService 获得上传oss token的服务
-type UploadTokenService struct {
+type UploadPhotoTokenService struct {
 	Filename string `form:"filename" json:"filename"`
 }
 
 // Post 创建token
-func (service *UploadTokenService) Post() serializer.Response {
+func (service *UploadPhotoTokenService) Post() serializer.Response {
 	// 获取扩展名
 	ext := filepath.Ext(service.Filename)
 
@@ -25,7 +25,7 @@ func (service *UploadTokenService) Post() serializer.Response {
 		oss.ContentType(mime.TypeByExtension(ext)),
 	}
 
-	key := "upload/avatar/" + uuid.Must(uuid.NewRandom()).String() + ext
+	key := "upload/photo/" + uuid.Must(uuid.NewRandom()).String() + ext
 	// 签名直传。
 	signedPutURL, err := model.OssBucket.SignURL(key, oss.HTTPPut, 600, options...)
 	if err != nil {

@@ -1,14 +1,14 @@
 package api
 
 import (
-	"miliste/service"
+	service "miliste/service/upload"
 
 	"github.com/gin-gonic/gin"
 )
 
 // UploadToken 上传授权
 func UploadToken(c *gin.Context) {
-	service := service.UploadTokenService{}
+	service := service.UploadPhotoTokenService{}
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Post()
 		c.JSON(200, res)

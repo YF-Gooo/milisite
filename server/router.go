@@ -38,21 +38,16 @@ func NewRouter() *gin.Engine {
 		}
 
 		// 照片操作
-		v1.POST("images", api.CreateImage)
-		v1.GET("image/:id", api.ShowImage)
-		v1.GET("images", api.ListImage)
-		v1.PUT("image/:id", api.UpdateImage)
-		v1.DELETE("image/:id", api.DeleteImage)
+		v1.POST("photos", api.CreatePhoto)
+		v1.GET("photo/:id", api.ShowPhoto)
+		v1.GET("photos", api.ListPhoto)
+		v1.PUT("photo/:id", api.UpdatePhoto)
+		v1.DELETE("photo/:id", api.DeletePhoto)
 		// 排行榜
 		v1.GET("rank/daily", api.DailyRank)
 		// 其他
 		v1.POST("upload/token", api.UploadToken)
 	}
-
-	// swagger文档
-	// 游览器打开 http://localhost:3000/swagger/index.html
-	r.StaticFile("/swagger.json", "./swagger/swagger.json")
-	r.Static("/swagger", "./swagger/dist")
 
 	return r
 }

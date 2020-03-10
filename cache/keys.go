@@ -10,9 +10,9 @@ const (
 	DailyRankKey = "rank:daily"
 )
 
-// ImageViewKey 照片点击数的key
-// view:image:1 -> 100
-// view:image:2 -> 150
-func ImageViewKey(id uint) string {
-	return fmt.Sprintf("view:image:%s", strconv.Itoa(int(id)))
+// PhotoViewKey 照片点击数的key
+// view:photo:1 -> 100
+// view:photo:2 -> 150
+func PhotoViewKey(id uint) string {
+	return fmt.Sprintf("view:photo:%s", strconv.Itoa(int(id)))
 }

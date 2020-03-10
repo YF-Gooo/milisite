@@ -2,7 +2,7 @@ package api
 
 import (
 	"miliste/serializer"
-	"miliste/service"
+	service "miliste/service/user"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"

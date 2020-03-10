@@ -2,7 +2,7 @@
 喵站是为了收集纯净的猫咪照片而设计的网站。采用人工智能审核技术，只能上传与猫咪有关的无水印照片。
 
 # 主页
-![avatar](images/home.jpg)
+![image](images/home.jpg)
 具体的前端界面请查看了我的另一个仓库: https://github.com/YF-Gooo/milisite-vue
 # 预备工作
 1. 先使用docker-compose一键开启redis和mysql

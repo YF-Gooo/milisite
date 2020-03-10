@@ -5,14 +5,14 @@ import (
 	"miliste/serializer"
 )
 
-// DeleteImageService 删除投稿的服务
-type DeleteImageService struct {
+// DeletePhotoService 删除投稿的服务
+type DeletePhotoService struct {
 }
 
 // Delete 删除照片
-func (service *DeleteImageService) Delete(id string) serializer.Response {
-	var image model.Image
-	err := model.DB.First(&image, id).Error
+func (service *DeletePhotoService) Delete(id string) serializer.Response {
+	var photo model.Photo
+	err := model.DB.First(&photo, id).Error
 	if err != nil {
 		return serializer.Response{
 			Status: 404,
@@ -21,7 +21,7 @@ func (service *DeleteImageService) Delete(id string) serializer.Response {
 		}
 	}
 
-	err = model.DB.Delete(&image).Error
+	err = model.DB.Delete(&photo).Error
 	if err != nil {
 		return serializer.Response{
 			Status: 50000,
